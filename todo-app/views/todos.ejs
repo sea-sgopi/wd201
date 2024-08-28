@@ -11,7 +11,7 @@
                 <div class="flex items-center w-fit my-2 px-2 py-1 rounded hover:bg-purple-50">
                     <input id="todo-checkbox-<%= overdue[i].id%>" type="checkbox" class="w-4 h-4 text-blue-600 bg-gray" <%=overdue[i].completed ? "checked" : "" %> onclick="updateTodo(<%= overdue[i].id %>)" >
                     <label for="todo-checkbox-<%= overdue[i].id%>" class="ml-2 text-sm text-gray-600 cursor-pointer"><%= overdue[i].title %></label>
-                    <label for="todo-checkbox-<%= overdue[i].id%>" class="ml-2 text-sm text-gray-600 cursor-pointer"><%= overdue[i].dueDate %></label>
+                        
                     <a href="#" class="trash-icon ml-7"  onclick="deleteTodo(<%=overdue[i].id %>)"><svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="size-5">
                         <path stroke-linecap="round" stroke-linejoin="round" d="M6 18 18 6M6 6l12 12" />
                       </svg>
@@ -50,7 +50,7 @@
                 <div class="flex items-center w-fit my-2 px-2 py-1 rounded hover:bg-purple-50">
                     <input id="todo-checkbox-<%= dueLater[i].id%>" type="checkbox" class="w-4 h-4 text-blue-600 bg-gray" <%=dueLater[i].completed ? "checked" : "" %> onclick="updateTodo(<%= dueLater[i].id %>)">
                     <label for="todo-checkbox-<%= dueLater[i].id%>" class="ml-2 text-sm text-gray-600 cursor-pointer"><%= dueLater[i].title %></label>
-                    <label for="todo-checkbox-<%= dueLater[i].id%>" class="ml-2 text-sm text-gray-600 cursor-pointer"><%= dueLater[i].dueDate %></label>
+                    
                     <a href="#" class="trash-icon ml-7" onclick="deleteTodo(<%= dueLater[i].id %>)" ><svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="size-5">
                         <path stroke-linecap="round" stroke-linejoin="round" d="M6 18 18 6M6 6l12 12" />
                       </svg>
@@ -69,7 +69,6 @@
                     <div class="flex items-center w-fit my-2 px-2 py-1 rounded hover:bg-purple-50">
                         <input id="todo-checkbox-<%= completed[i].id%>" type="checkbox" class="w-4 h-4 text-blue-600 bg-gray" <%=completed[i].completed ? "checked" : "" %> onclick="updateTodo(<%= completed[i].id %>)">
                         <label for="todo-checkbox-<%= completed[i].id%>" class="ml-2 text-sm text-gray-600 cursor-pointer"><%= completed[i].title %></label>
-                        <label for="todo-checkbox-<%= completed[i].id%>" class="ml-2 text-sm text-gray-600 cursor-pointer"><%= completed[i].dueDate %></label>
                         
                         <a href="#" class="trash-icon ml-7" onclick="deleteTodo(<%= completed[i].id %>)" ><svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="size-5">
                             <path stroke-linecap="round" stroke-linejoin="round" d="M6 18 18 6M6 6l12 12" />
