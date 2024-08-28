@@ -1,0 +1,14 @@
+<form action="/todos" method="post" class="w-full max-w-md">
+    <input type="hidden" name="_csrf" value="<%= csrfToken %>">
+    <div class="flex gap-2 py-4">
+        <div class="flex-auto">
+            <input type="text" type="text" name="title" class="border border-gray-300 text-gray-900 rounded w-full p-2 text-sm" placeholder="what's next?" required>
+        </div>
+        <div class="flex-auto">
+            <input type="date" name="dueDate" class="border border-gray-300 text-gray-900 rounded w-full p-2 text-sm leading-4" required/>
+        </div>
+        <div class="flex-none">
+            <button type="submit" class="bg-green-600 text-white px-5 py-1.5 rounded font-medium mr-2 mb-2 ">Add</button>
+        </div>
+    </div>
+        </form>

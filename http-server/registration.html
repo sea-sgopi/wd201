@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Form Registration</title>
+    <style>
+        body {
+            background-color: white;
+            font-family: 'Courier New', Courier, monospace;
+        }
+        div {
+            border-radius: 10px;
+            background-color: #f2f2f2;
+            padding: 20px;
+        }
+        h1 {
+            padding: 0px 50px;
+        }
+        input, select {
+            width: 100%;
+            padding: 12px 20px;
+            margin: 8px 0;
+            display: inline-block;
+            border: 1px solid #ccc;
+            border-radius: 10px;
+            box-sizing: border-box;
+            font-size: 15px;
+        }
+        #submit {
+            width: 100%;
+            background-color: #4CAF50;
+            color: white;
+            padding: 14px 20px;
+            margin: 8px 0;
+            border: none;
+            cursor: pointer;
+            border-radius: 10px;
+        }
+        #submit:hover {
+            background-color: #45a049;
+        }
+        .checkbox-container {
+            display: flex;
+        }
+        #acceptTerms {
+            margin-right: 1px;
+        }
+    </style>
+</head>
+<body>
+    <h1>Form Registration</h1>
+    <div>
+        <form id="user-form">
+            <label for="name">Name</label>
+            <input type="text" id="name" name="name" required>
+
+            <label for="email">Email</label>
+            <input type="email" id="email" name="email" required>
+
+            <label for="password">Password</label>
+            <input type="password" id="password" name="password" required>
+
+            <label for="dob">Date of Birth</label>
+            <input type="date" id="dob" name="dob" required>
+            
+            <div class="checkbox-container">
+                <div>
+                    <input type="checkbox" name="acceptTerms" id="acceptTerms">
+                </div>
+                <div>
+                    <label for="acceptTerms">I accept the terms and conditions</label>
+                </div>
+            </div>
+            <button id="submit" type="submit">Submit</button>
+        </form>
+    </div>
+
+    <div>
+        <h2>Entries</h2>
+        <div id="user-entries"></div>
+    </div>
+</body>
+<script src="registration.js"></script>
+</html>

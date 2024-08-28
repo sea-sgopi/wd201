@@ -1,0 +1,557 @@
+    1  ls 
+    2  ls -a
+    3  ls -lht
+    4  ls -al
+    5  cd
+    6  pwd
+    7  mkdir wd101
+    8  cd wd101/
+    9  mkdir html-css
+   10  cd html-css/
+   11  pwd
+   12  cd ../../..
+   13  ls
+   14  cd ..
+   15  ls
+   16  cd
+   17  pws
+   18  pwd
+   19  code .
+   20  pwd
+   21  ls -la
+   22  ls -l
+   23  ls -a
+   24  ls -la
+   25  exit
+   26  ls
+   27  cd
+   28  ls
+   29  ls -a
+   30  ls -all
+   31  cd /mnt
+   32  ls
+   33  cd
+   34  cd wd101/
+   35  code .
+   36  ls
+   37  cd wd101/
+   38  ls
+   39  mkdir scripts
+   40  ls
+   41  cd html-css/
+   42  ls
+   43  cd ..
+   44  code .
+   45  git init --initial-branch=master
+   46  git remote add origin git@git.selfmade.ninja:skopeemail/ws101.git
+   47  git add .
+   48  git commit -m "Initial commit"
+   49  git push --set-upstream origin master
+   50  cd
+   51  ls
+   52  apt install git
+   53  sudo apt install git
+   54  ssh-keygen -t rsa -b 2048 -C "WSL"
+   55  cat /home/s_gopi/.ssh/id_rsa.pub
+   56  git config --global user.email skopeemail@gmail.com
+   57  git init --initial-branch=master
+   58  ls
+   59  ls -a
+   60  cd .git
+   61  ls
+   62  cd ..
+   63  rm -rf .git
+   64  ls -a
+   65  ls
+   66  cd wd101
+   67  ls
+   68  cd Assignment/
+   69  ls
+   70  git init --initial-branch=master
+   71  git remote add origin git@git.selfmade.ninja:skopeemail/ws101.git
+   72  git add .
+   73  git commit -m "Initial commit"
+   74  git push --set-upstream origin master
+   75  git pull
+   76  ls -a
+   77  rm -rf .git
+   78  ls
+   79  rm -rf .git
+   80  ls -a
+   81  git init --initial-branch=master
+   82  git remote add origin git@git.selfmade.ninja:skopeemail/wd-101.git
+   83  git add .
+   84  git commit -m "Initial commit"
+   85  git push --set-upstream origin master
+   86  rm -rf .git
+   87  ls -a
+   88  cd
+   89  curl -sL https://raw.githubusercontent.com/nvm-sh/nvm/LATEST-VERSION/install.sh -o install_nvm.sh
+   90  bash install_nvm.sh
+   91  curl -sL https://raw.githubusercontent.com/nvm-sh/nvm/LATEST-VERSION/install.sh -o install_nvm.sh
+   92  bash install_nvm.sh
+   93  curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.40.0/install.sh | bash
+   94  nvm --help
+   95  npm run test
+   96  nvm remote-ls
+   97  nvm ls-remote
+   98  nvm install --lts
+   99  node -v
+  100  node --version
+  101  ls
+  102  mkdir wd201
+  103  cd wd201/
+  104  ls
+  105  npm -v
+  106  mkdir hello-world
+  107  cd hello-world/
+  108  npm init
+  109  code .
+  110  node index.js 
+  111  node
+  112  git -v
+  113  git --version
+  114  apt update
+  115  sudo apt update
+  116  cd /.ssh
+  117  cd 
+  118  cd ..
+  119  ls
+  120  cd 
+  121  ls
+  122  cd /
+  123  ls
+  124  ls -a
+  125  cd /home/s_gopi/.ssh
+  126  ls
+  127  cat id_rsa.pub 
+  128  cd
+  129  ls
+  130  sls
+  131  mkdir test
+  132  cd test/
+  133  nano index.html
+  134  git init
+  135  git add README.md
+  136  git commit -m "first commit"
+  137  git branch -M main
+  138  git remote add origin https://github.com/sea-sgopi/test.git
+  139  git push -u origin main
+  140  git init
+  141  git add .
+  142  git commit -m "kn"
+  143  git remote add origin https://github.com/sea-sgopi/test.git
+  144  git push -u origin main
+  145  gh
+  146  apt install gh
+  147  sudo apt install gh
+  148  gh auth login
+  149  CD ..
+  150  cd ..
+  151  ls
+  152  rm -f test/
+  153  rm -rf test/
+  154  ls
+  155  gh auth status
+  156  npm install -g eslint
+  157  eslint --init
+  158  ls
+  159  cd
+  160  ls
+  161  cd wd201/
+  162  eslint --init
+  163  cd hello-world/
+  164  eslint --init
+  165  cd ..
+  166  mkdir TodoApplication
+  167  cd TodoApplication/
+  168  ls
+  169  git init
+  170  touch index.html app.js README.md
+  171  cd ..
+  172  cd
+  173  cd wd
+  174  ls
+  175  cd wd201/
+  176  ls
+  177  cd hello-world/
+  178  ls -a
+  179  git init
+  180  git add index.js 
+  181  rm -f .git
+  182  rm -rf .git
+  183  ls
+  184  ls -a
+  185  cd ..
+  186  git init
+  187  git add hello-world/index.js 
+  188  git add hello-world/package.json 
+  189  git .gitignore
+  190  git add .gitignore
+  191  git status
+  192  git branch -M main
+  193  git remote add origin https://github.com/sea-sgopi/wd201.git
+  194  git push -u origin main
+  195  git status
+  196  git add hello-world/index.js 
+  197  git commit -m "first commit"
+  198  git push -u origin main
+  199  ls
+  200  cd wd201/
+  201  code .
+  202  ls
+  203  cd hello-world/
+  204  npm run start
+  205  npm start
+  206  npm run streams.js 
+  207  npm run server.js 
+  208  npm run streams.js 
+  209  node streams.js 
+  210  node --version
+  211  npm --version
+  212  cd http-server
+  213  mkdir http-server
+  214  cd h
+  215  cd http-server/
+  216  npm init
+  217  npm config set init-author-name "S Gopi --location=global
+  218  npm config set init-author-email "gopi.s@seaedu.ac.in"
+  219  npm config ls
+  220  npm config set init-author-name "S Gopi" --location=global
+  221  npm config set init-author-email "gopi.s@seaedu.ac.in"
+  222  npm config ls
+  223  npm config ls -l
+  224  npm config ls
+  225  npm config set init-author-email "gopi.s@seaedu.ac.in" --location=global
+  226  npm config ls
+  227  cd ../hello-world/
+  228  node streams.js 
+  229  cd ../http-server/
+  230  npm i eslint
+  231  ls
+  232  node InputCLI.js 
+  233  npm install minimist
+  234  node MinimistCLI.js 
+  235  node MinimistCLI.js -- --name Hajdbj --ajbjabc 32
+  236  node MinimistCLI.js -- --nHajdbj --a 32
+  237  node MinimistCLI.js -- --n Hajdbj --a 32
+  238  npm start
+  239  cd wd201/
+  240  code .
+  241  ls
+  242  cd http-server/
+  243  npm start -- ---port 5000
+  244  node run MinimistCLI.js  -- ---port 5000
+  245  node MinimistCLI.js  -- ---port 5000
+  246  node MinimistCLI.js  -- --port 5000
+  247  node MinimistCLI.js  -- -p 5000
+  248  node MinimistCLI.js  -- --p 5000
+  249  node MinimistCLI.js  -- -p 5000
+  250  cd ../../wd
+  251  cd ../../w
+  252  cd ../../
+  253  ls
+  254  cd wd101/
+  255  ls
+  256  cd Assignment/
+  257  ls
+  258  cd ../../wd201/
+  259  ls
+  260  cd http-server/
+  261  npm start
+  262  node index.js --port 4000
+  263  node index.js --port 5000
+  264  node index.js --p 5000
+  265  ls -a
+  266  cd ..
+  267  ls
+  268  ls -a
+  269  git add http-server/index.js 
+  270  git add http-server/home.html 
+  271  git add http-server/package.json 
+  272  git add http-server/registration.js 
+  273  git add http-server/registration.html
+  274  git add http-server/Registration.html
+  275  git add http-server/Project.html 
+  276  git commit "functional HTTP server"
+  277  git status
+  278  git commit -m "functional HTTP server"
+  279  git push main
+  280  git push 
+  281  cd
+  282  ls
+  283  git clone https://github.com/sea-sgopi/wd201.git http
+  284  cd http/
+  285  ls
+  286  cd http-server/
+  287  node index.js 
+  288  ls
+  289  node start 
+  290  node index.js --p 2000
+  291  npm install minimist
+  292  node index.js --p 2000
+  293  cd ..
+  294  rm -rf http
+  295  ls
+  296  cd wd201/http-server/
+  297  node index.js -p 1000
+  298  node index.js -p 5000
+  299  cd ..
+  300  ls
+  301  git add http-server/project.html
+  302  git add http-server/registration.html 
+  303  git commit -m "File Name Changed"
+  304  git push
+  305  git status
+  306  git add http-server/index.js 
+  307  git rm http-server/Project.html 
+  308  git rm http-server/Registration.html 
+  309  git commit -m "File Name Changed"
+  310  git push
+  311  ls
+  312  cd h
+  313  cd http-server/
+  314  node eventloop.js 
+  315  node index.js -p 5000
+  316  c d..
+  317  cd ..
+  318  git add http-server/home.html 
+  319  git commit -m "typo fix"
+  320  git push
+  321  cd http-server/
+  322  note eventloop.js 
+  323  node eventloop.js 
+  324  node render.js 
+  325  node closure.js 
+  326  cd ../todo-cli/
+  327  node todo.js 
+  328  cd ..
+  329  git add todo-cli/todo.js 
+  330  git commit -m "TODO List"
+  331  git push
+  332  cd todo-cli/
+  333  node todo.js 
+  334  node unit-testing.js 
+  335  npm iinit
+  336  npm init
+  337  npm install jest 
+  338  npm install jest --save-dev
+  339  npm audit fix --force
+  340  npm install jest@latest
+  341  npm install axios
+  342  npm audit
+  343  npm audit fix
+  344  npm audit fix --force
+  345  npm jest
+  346  node jest
+  347  npm  jest
+  348  node jest
+  349  npm test
+  350  cd wd201/
+  351  l
+  352  code .
+  353  apt search libpd-dev
+  354  cd todo-cli/
+  355  npm install husky --save-dev
+  356  cd ..
+  357  npm pkg set scripts.prepare="cd .. && husky install todo-cli/.husky
+  358  "
+  359  cd todo-cli/
+  360  npm pkg set scripts.prepare="cd .. && husky install todo-cli/.husky
+  361  "
+  362  npm run prepare
+  363  npm install husky --save-dev
+  364  npm run prepare
+  365  npm audit
+  366  npm audit --force
+  367  husky install
+  368  npm install husky
+  369  npm install --save-dev husky lint-staged
+  370  npm init @eslint/config
+  371  npm install prettier --save-dev
+  372  npx --no-install husky todo-cli/.husky
+  373  cd ..
+  374  npx --no-install husky todo-cli/.husky
+  375  ls -a
+  376  npx --no-install husky todo-cli/.husky
+  377  npx husky todo-cli/.husky
+  378  npx --no-install husky todo-cli/.husky
+  379  cd todo-cli/
+  380  echo "cd todo-cli && npm test" > .husky/pre-commit
+  381  git status
+  382  git add --all
+  383  git status
+  384  git commit -m "Add pre-commit hook to run tests"
+  385  npm install lint-staged prettier --save-dev
+  386  npm init @eslint/config
+  387  npm install eslint
+  388  npm install prettier
+  389  echo "npx lint-staged" >> .husky/pre-commit
+  390  echo "npx lint-staged" >> .husky/pre-commit 
+  391  git add --all
+  392  git comit "test"
+  393  git commit -m "test"
+  394  git add --all
+  395  git commit -m "test"
+  396  npm install eslint-plugin-jest --save-dev
+  397  git commit -m "test"
+  398  git add .
+  399  git commit -m "test"
+  400  git add .
+  401  git commit "test"
+  402  git commit -m "test"
+  403  git commit "test"
+  404  git add .
+  405  git commit "test"
+  406  git commit -m "test"
+  407  git add .
+  408  git commit -m "test"
+  409  git add .
+  410  git commit -m "test"
+  411  git add .
+  412  git commit -m "test"
+  413  git add .
+  414  git commit -m "test"
+  415  git add .
+  416  git commit -m "test"
+  417  git add .
+  418  git commit -m "test"
+  419  git status
+  420  cd ..
+  421  git status
+  422  git push
+  423  git status
+  424  cd todo-cli/
+  425  git add .
+  426  git commit -m "test"
+  427  git push
+  428  git commit -m "test"
+  429  cd __test__/
+  430  ls
+  431  pwd
+  432  git rm __test
+  433  cd ..
+  434  git rm __test__
+  435  git rm -r __test__
+  436  git add __tests__/todo.js 
+  437  git add .
+  438  git commit "Name"
+  439  git commit -m "Name"
+  440  git push
+  441  sudo apt update
+  442  apt install postgresql postgresql-contrib libpd-dev
+  443  sudo apt install postgresql 
+  444  apt search libpd-dev
+  445  apt install postgresql postgresql-contrib 
+  446  sudo apt install postgresql postgresql-contrib 
+  447  sudo service postgresql start
+  448  sudo service postgresql status
+  449  sudo -i -u postgres
+  450  cd todo-cli/
+  451  npm install sequelize pg pg-hstore
+  452  node connectDB.js 
+  453  node todo.js 
+  454  node TodoModel.js 
+  455  node index.js 
+  456  npm install --save-dev sequelize-cli
+  457  cd ..
+  458  npx sequelize-cli init
+  459  cd todo-cli/
+  460  npx sequelize-cli init
+  461  npx sequelize-cli db:create
+  462  npx sequelize-cli model:generate --name Todo --attributes titls:string,dueDate:dateonly,completed:boolean
+  463  npx sequelize-cli db:migrate
+  464  npm run db:create:test
+  465  npm test
+  466  npm install util
+  467  npm test
+  468  cd ..
+  469  npm test
+  470  npm test -- --detectOpenHandles
+  471  cd todo-cli/
+  472  npm test -- --detectOpenHandles
+  473  npm update
+  474  npm test -- --detectOpenHandles --verbose
+  475  npm update sequelize pg jest
+  476  npm test -- --detectOpenHandles --verbose --runInBand
+  477  npm test -- --detectOpenHandles --verbose --runInBand --no-cache
+  478  npm test
+  479  cd wd201/
+  480  code .
+  481  service postgres status
+  482  service postgressql status
+  483  service postgresql status
+  484  service postgresql stop
+  485  sudo service postgresql stop
+  486  service postgresql status
+  487  service postgresql start
+  488  sudo service postgresql start
+  489  service postgresql status
+  490  cd todo-cli/
+  491  npm test
+  492  node listTodos.js 
+  493  npm test
+  494  node addTodo.js --title="hello there" --dueInDays=2
+  495  npm test
+  496  git add .
+  497  git commit "database"
+  498  git commit -m "database"
+  499  git add .
+  500  git commit -m "database"
+  501  git add .
+  502  git commit -m "database"
+  503  git push
+  504  cd ..
+  505  git status
+  506  git add .eslintignore 
+  507  git commit -m "added eslintignore"
+  508  git push
+  509  cd todo-cli
+  510  npm init
+  511  git add .
+  512  cd ..
+  513  git status
+  514  git add todo-cli-practice/
+  515  git status
+  516  git commit "file structure"
+  517  git commit -m "file structure"
+  518  git push
+  519  cd ..
+  520  cd wd201/
+  521  cd todo-cli-practice/
+  522  git commit -m "test"
+  523  git add .
+  524  git commit -m "test"
+  525  ls
+  526  cd
+  527  ls
+  528  code .
+  529  git init --initial-branch=master
+  530  git remote add origin git@git.selfmade.ninja:skopeemail/javascript.git
+  531  git add index.html 
+  532  git add script.js 
+  533  git add style.css 
+  534  git commit -m "Initial commit"
+  535  git push --set-upstream origin master
+  536  ssh-keygen -t rsa -b 2048 -C "WSL ubuntu"
+  537  git push --set-upstream origin master
+  538  git commit -m "Initial commit"
+  539  git push --set-upstream origin master
+  540  eval "$(ssh-agent -s)"
+  541  ssh-add ~/home/s_gopi/.ssh/id_rsa_wsl
+  542  ssh-add -l
+  543  ssh-add /home/s_gopi/.ssh/id_rsa_wsl
+  544  ssh-add -l
+  545  git push --set-upstream origin master
+  546  git add script.js 
+  547  git commit -m "cart"
+  548  git push --set-upstream origin master 
+  549  git commit -m "cart"
+  550  git add script.js 
+  551  git commit -m "cart"
+  552  git push --set-upstream origin master 
+  553  ls
+  554  cd todo-cli
+  555  histroy
+  556  history
+  557  history > commands.txt
