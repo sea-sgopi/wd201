@@ -235,7 +235,7 @@ describe("Todo Application", function () {
       password: "wrongpassword",
       _csrf: loginCsrfToken,
     });
-
+    console.log('Invalid login response:', invalidLoginResponse.text);
     expect(invalidLoginResponse.statusCode).toBe(302);
     expect(invalidLoginResponse.header.location).toBe("/login");
     const todoResponse = await agent.get("/todos");
@@ -243,8 +243,8 @@ describe("Todo Application", function () {
   });
 
   test("Should not create a an account with empty email", async () => {
-    let res = await agent.get("/signup");
-    const csrfToken = extractCsrfToken(request);
+    let res = await agent.get("/signup"); 
+    const csrfToken = extractCsrfToken(res);
     const signupResponse = await agent.post("/users").send({
       firstName: "Test",
       lastName: "user",

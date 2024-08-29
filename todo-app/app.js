@@ -60,8 +60,8 @@ passport.use(
       usernameField: "email",
       passwordField: "password",
     },
-    (username, password, done) => {
-      User.findOne({
+    async (username, password, done) => {
+    User.findOne({
         where: {
           email: username,
         },
@@ -162,6 +162,19 @@ app.get("/signup", (request, response) => {
 
 app.post("/users", async (request, response) => {
   const hashedPwd = await bcrypt.hash(request.body.password, saltRound);
+  const { firstName, email, password } = request.body;
+  if(!firstName) {
+    return response.status(400).json({error: 'First name is required'});
+  }
+  if(!email) {
+    return response.status(400).json({error: 'Email is required'});
+  }
+  if(!/\S+@\S+\.\S+/.test(email)) {
+    return response.status(400).json({error: 'Email must be valid one'});
+  }
+  if(!password) {
+    return response.status(400).json({error: 'Password is required'});
+  }
   try {
     const user = await User.create({
       firstName: request.body.firstName,
@@ -172,17 +185,17 @@ app.post("/users", async (request, response) => {
     request.login(user, (err) => {
       if (err) {
         console.log(err);
+        return response.status(500).json({ error: 'Failed to log in after signup.' });
       }
       response.redirect("/todos");
     });
   } catch (error) {
     console.error(error);
+    response.status(500).json({ error: 'Internal Server Error' });
   }
 });
 
-app.post(
-  "/session",
-  passport.authenticate("local", {
+app.post("/session", passport.authenticate("local", {
     failureRedirect: "/login",
     failureFlash: true,
   }),
