@@ -97,10 +97,15 @@ passport.deserializeUser((id, done) => {
 });
 
 app.get("/", async (request, response) => {
-  response.render("index", {
-    title: "Todo Application",
-    csrfToken: request.csrfToken(),
-  });
+  console.log("Authenticated:", request.isAuthenticated());
+  if (request.isAuthenticated()) {
+    response.redirect("/todos");
+  } else {
+    response.render("index", {
+      title: "Todo Application",
+      csrfToken: request.csrfToken(),
+    });
+  }
 });
 
 app.get("/login", async (request, response) => {
