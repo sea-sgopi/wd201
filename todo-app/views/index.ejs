@@ -6,12 +6,13 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="./css/styles.css">
     <script src="https://cdn.tailwindcss.com"></script>
-    <title>Document</title>
+    <title><%= title %></title>
 </head>
 <body class="pl-20 pt-10">
             <%- include('header.ejs') %>
-            <%- include('form.ejs') %>
-            <%- include('todos.ejs') %>
+            <p class="py-2">Welcome to the TO-DO manager</p>
+            <p class="py-2">New Here ? <a href="/signup" class="text-green-600">Sign-up-now</a></p>
+            <p class="py-2">Already have an accouunt? <a href="/login" class="text-green-600">Sign-in</a></p>
             <%- include('footer.ejs') %>
    
  

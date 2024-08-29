@@ -10,18 +10,21 @@ module.exports = (sequelize, DataTypes) => {
      */
     // eslint-disable-next-line no-unused-vars
     static associate(models) {
+      Todo.belongsTo(models.User,{
+        foreignKey: 'userId'
+      })
       // define association here
     }
 
-    static addTodo({ title, dueDate, completed = false }) {
-      return this.create({ title: title, dueDate: dueDate, completed });
+    static addTodo({ title, dueDate, completed = false , userId}) {
+      return this.create({ title: title, dueDate: dueDate, completed , userId});
     }
 
-    static getTodos() {
-      return this.findAll();
-    }
+    // static getTodos() {
+    //   return this.findAll();
+    // }
 
-    static async overdue() {
+    static async overdue(userId) {
       // FILL IN HERE TO RETURN OVERDUE ITEMS
       return await Todo.findAll({
         where: {
@@ -34,26 +37,29 @@ module.exports = (sequelize, DataTypes) => {
             },
           ],
         },
+        userId
       });
     }
 
-    static async completed() {
+    static async completed(userId) {
       return this.findAll({
         where: {
           completed: true,
         },
+        userId
       });
     }
 
-    static async remove(id) {
+    static async remove(id,userId) {
       return this.destroy({
         where: {
-          id: id,
+          id, // id: id,
         },
+        userId
       });
     }
 
-    static async dueToday() {
+    static async dueToday(userId) {
       // FILL IN HERE TO RETURN ITEMS DUE tODAY
       const today = new Date().toISOString().split("T")[0];
       return await Todo.findAll({
@@ -63,10 +69,11 @@ module.exports = (sequelize, DataTypes) => {
             { dueDate: { [Sequelize.Op.eq]: today } },
           ],
         },
+        userId
       });
     }
 
-    static async dueLater() {
+    static async dueLater(userId) {
       // FILL IN HERE TO RETURN ITEMS DUE LATER
       const today = new Date().toISOString().split("T")[0];
       return await Todo.findAll({
@@ -76,6 +83,7 @@ module.exports = (sequelize, DataTypes) => {
             { completed: { [Sequelize.Op.eq]: false } },
           ],
         },
+        userId
       });
     }
     /** Removeed in level 9   and changed to setCompletionStatus
