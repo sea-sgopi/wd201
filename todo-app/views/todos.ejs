@@ -1,3 +1,5 @@
+
+<pre><%= JSON.stringify(messages, null, 2) %></pre>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -10,9 +12,10 @@
 </head>
 <body class="pl-20 pt-10">
             <%- include('header.ejs') %>
+            <%- include('notifications.ejs') %>
             <a href="/signout">Sign Out</a>
             <%- include('form.ejs') %>
-            <%- include('table.ejs') %>
+            <%- include('todo.ejs') %>
             <%- include('footer.ejs') %>
    
  

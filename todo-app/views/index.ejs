@@ -9,6 +9,20 @@
     <title><%= title %></title>
 </head>
 <body class="pl-20 pt-10">
+    <% if (messages && messages.success && messages.success.length > 0) { %>
+        <% messages.success.forEach(function(message) { %>
+            <div class="alert alert-success">
+                <%= message %>
+            </div>
+        <% }); %>
+    <% } %>
+    <% if (messages && messages.error && messages.error.length > 0) { %>
+        <% messages.error.forEach(function(message) { %>
+            <div class="alert alert-error">
+                <%= message %>
+            </div>
+        <% }); %>
+    <% } %>
             <%- include('header.ejs') %>
             <p class="py-2">Welcome to the TO-DO manager</p>
             <p class="py-2">New Here ? <a href="/signup" class="text-green-600">Sign-up-now</a></p>

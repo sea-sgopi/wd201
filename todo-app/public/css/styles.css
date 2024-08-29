@@ -9,3 +9,13 @@ body {
 .Todo-Item {
   color: red;
 }
+
+.alert-success {
+  background-color: #d4edda;
+  color: #155724;
+}
+
+.alert-danger {
+  background-color: #f8d7da;
+  color: #721c24;
+}
