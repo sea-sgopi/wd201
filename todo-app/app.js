@@ -276,7 +276,6 @@ app.delete(
     response.status(422).json(error);
   }
     */
-
     // Tutorial
     try {
       const userId = request.user.id;
