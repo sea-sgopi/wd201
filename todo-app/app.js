@@ -11,7 +11,7 @@ const LocalStrategy = require('passport-local')
 const bcrypt = require('bcrypt');
 var csrf = require("tiny-csrf");
 var cookieParser = require("cookie-parser");
-const { nextTick } = require("process");
+const { nextTick, title } = require("process");
 
 // CSRF Secret String
 const csrfSecret = "This_should_be_32_character_long";
@@ -30,7 +30,9 @@ app.use(session({
   resave: false,
   saveUninitialized: false,
   cookie: {
-    maxAge: 24*60*60*1000 //24hrs
+    maxAge: 24*60*60*1000, //24hrs
+    secure:false,
+    httpOnly:true
   }
 }));
 
@@ -174,7 +176,11 @@ app.get("/todos/:id", connectEnsureLogin.ensureLoggedIn(),async function (reques
 
 app.post("/todos", connectEnsureLogin.ensureLoggedIn(),async function (request, response) {
   try {
-    const todo = await Todo.addTodo(request.body);
+    const todo = await Todo.addTodo({
+      title : request.body.title,
+      dueDate : request.body.dueDate,
+      userId : request.user.id,
+    });
     // return response.json(todo);
     return response.redirect("/todos");
   } catch (error) {

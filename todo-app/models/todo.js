@@ -8,7 +8,6 @@ module.exports = (sequelize, DataTypes) => {
      * This method is not a part of Sequelize lifecycle.
      * The `models/index` file will call this method automatically.
      */
-    // eslint-disable-next-line no-unused-vars
     static associate(models) {
       Todo.belongsTo(models.User,{
         foreignKey: 'userId'
@@ -20,24 +19,16 @@ module.exports = (sequelize, DataTypes) => {
       return this.create({ title: title, dueDate: dueDate, completed , userId});
     }
 
-    // static getTodos() {
-    //   return this.findAll();
-    // }
-
     static async overdue(userId) {
       // FILL IN HERE TO RETURN OVERDUE ITEMS
       return await Todo.findAll({
         where: {
-          [Sequelize.Op.and]: [
-            { completed: { [Sequelize.Op.eq]: false } },
-            {
-              dueDate: {
-                [Sequelize.Op.lt]: new Date().toISOString().split("T")[0],
-              },
-            },
-          ],
+          dueDate: {
+            [Sequelize.Op.lt]: new Date(),
+          },
+          userId,
+          completed : false
         },
-        userId
       });
     }
 
@@ -45,8 +36,8 @@ module.exports = (sequelize, DataTypes) => {
       return this.findAll({
         where: {
           completed: true,
-        },
-        userId
+          userId
+        }, 
       });
     }
 
@@ -54,43 +45,36 @@ module.exports = (sequelize, DataTypes) => {
       return this.destroy({
         where: {
           id, // id: id,
+          userId
         },
-        userId
       });
     }
 
     static async dueToday(userId) {
       // FILL IN HERE TO RETURN ITEMS DUE tODAY
-      const today = new Date().toISOString().split("T")[0];
       return await Todo.findAll({
         where: {
-          [Sequelize.Op.and]: [
-            { completed: { [Sequelize.Op.eq]: false } },
-            { dueDate: { [Sequelize.Op.eq]: today } },
-          ],
+          dueDate: { 
+            [Sequelize.Op.eq]: new Date()
+          } ,
+          userId,
+          completed: false,
         },
-        userId
       });
     }
 
     static async dueLater(userId) {
-      // FILL IN HERE TO RETURN ITEMS DUE LATER
-      const today = new Date().toISOString().split("T")[0];
       return await Todo.findAll({
         where: {
-          [Sequelize.Op.and]: [
-            { dueDate: { [Sequelize.Op.gt]: today } },
-            { completed: { [Sequelize.Op.eq]: false } },
-          ],
+          dueDate: { 
+            [Sequelize.Op.gt]: new Date()
+          },
+          userId,
+          completed: false
         },
-        userId
       });
     }
-    /** Removeed in level 9   and changed to setCompletionStatus
-    markAsCompleted() {
-      return this.update({ completed: true });
-    }
-      */
+
 
     setCompletionStatus() {
       return this.update({ completed: !this.completed });
