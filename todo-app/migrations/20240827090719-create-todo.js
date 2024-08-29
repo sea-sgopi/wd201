@@ -12,9 +12,11 @@ module.exports = {
       },
       title: {
         type: Sequelize.STRING,
+        allowNull: false,
       },
       dueDate: {
         type: Sequelize.DATEONLY,
+        allowNull: false,
       },
       completed: {
         type: Sequelize.BOOLEAN,

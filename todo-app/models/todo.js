@@ -9,14 +9,14 @@ module.exports = (sequelize, DataTypes) => {
      * The `models/index` file will call this method automatically.
      */
     static associate(models) {
-      Todo.belongsTo(models.User,{
-        foreignKey: 'userId'
-      })
+      Todo.belongsTo(models.User, {
+        foreignKey: "userId",
+      });
       // define association here
     }
 
-    static addTodo({ title, dueDate, completed = false , userId}) {
-      return this.create({ title: title, dueDate: dueDate, completed , userId});
+    static addTodo({ title, dueDate, completed = false, userId }) {
+      return this.create({ title: title, dueDate: dueDate, completed, userId });
     }
 
     static async overdue(userId) {
@@ -27,7 +27,7 @@ module.exports = (sequelize, DataTypes) => {
             [Sequelize.Op.lt]: new Date(),
           },
           userId,
-          completed : false
+          completed: false,
         },
       });
     }
@@ -36,16 +36,16 @@ module.exports = (sequelize, DataTypes) => {
       return this.findAll({
         where: {
           completed: true,
-          userId
-        }, 
+          userId,
+        },
       });
     }
 
-    static async remove(id,userId) {
+    static async remove(id, userId) {
       return this.destroy({
         where: {
           id, // id: id,
-          userId
+          userId,
         },
       });
     }
@@ -54,9 +54,9 @@ module.exports = (sequelize, DataTypes) => {
       // FILL IN HERE TO RETURN ITEMS DUE tODAY
       return await Todo.findAll({
         where: {
-          dueDate: { 
-            [Sequelize.Op.eq]: new Date()
-          } ,
+          dueDate: {
+            [Sequelize.Op.eq]: new Date(),
+          },
           userId,
           completed: false,
         },
@@ -66,15 +66,14 @@ module.exports = (sequelize, DataTypes) => {
     static async dueLater(userId) {
       return await Todo.findAll({
         where: {
-          dueDate: { 
-            [Sequelize.Op.gt]: new Date()
+          dueDate: {
+            [Sequelize.Op.gt]: new Date(),
           },
           userId,
-          completed: false
+          completed: false,
         },
       });
     }
-
 
     setCompletionStatus() {
       return this.update({ completed: !this.completed });

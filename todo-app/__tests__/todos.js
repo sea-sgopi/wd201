@@ -1,3 +1,4 @@
+/* eslint-disable no-unused-vars */
 const request = require("supertest");
 
 const db = require("../models/index");
@@ -13,13 +14,13 @@ function extractCsrfToken(res) {
 
 const login = async (agent, username, password) => {
   let res = await agent.get("/login");
-  let csrfToken= extractCsrfToken(res);
+  let csrfToken = extractCsrfToken(res);
   res = await agent.post("/session").send({
     email: username,
     password: password,
     _csrf: csrfToken,
   });
-}
+};
 describe("Todo Application", function () {
   beforeAll(async () => {
     await db.sequelize.sync({ force: true });
@@ -36,7 +37,7 @@ describe("Todo Application", function () {
     }
   });
 
-  test("Sign up", async ()=> {
+  test("Sign up", async () => {
     let res = await agent.get("/signup");
     const csrfToken = extractCsrfToken(res);
     res = await agent.post("/users").send({
@@ -49,14 +50,13 @@ describe("Todo Application", function () {
     expect(res.statusCode).toBe(302);
   });
 
-  test("Sign Out", async()=> {
+  test("Sign Out", async () => {
     let res = await agent.get("/todos");
     expect(res.statusCode).toBe(200);
     res = await agent.get("/signout");
     expect(res.statusCode).toBe(302);
     res = await agent.get("/todos");
     expect(res.statusCode).toBe(302);
-
   });
 
   test("Creates a new todo", async () => {
@@ -162,7 +162,6 @@ describe("Todo Application", function () {
 
     res = await agent.get("/todos");
     csrfToken = extractCsrfToken(res);
-
 
     const markCompleteResponse = await agent
       .put(`/todos/${latestTodo.id}`)
