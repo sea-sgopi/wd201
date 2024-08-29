@@ -1,13 +1,15 @@
 // import globals from "globals";
 // import pluginJs from "@eslint/js";
 
+
 // export default [
 //   {files: ["**/*.js"], languageOptions: {sourceType: "commonjs"}},
 //   {languageOptions: { globals: globals.browser }},
 //   pluginJs.configs.recommended,
 // ];
 
-// overwrite
+
+// overwrite 
 
 import globals from "globals";
 import pluginJs from "@eslint/js";
@@ -20,8 +22,8 @@ export default [
       sourceType: "commonjs",
       globals: {
         ...globals.browser, // Includes browser globals
-        ...globals.node, // Includes Node.js globals
-        ...globals.jest, // Includes Jest globals like `describe`, `test`, etc.
+        ...globals.node,    // Includes Node.js globals
+        ...globals.jest,    // Includes Jest globals like `describe`, `test`, etc.
       },
     },
     plugins: {
