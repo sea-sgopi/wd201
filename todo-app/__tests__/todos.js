@@ -235,7 +235,7 @@ describe("Todo Application", function () {
       password: "wrongpassword",
       _csrf: loginCsrfToken,
     });
-    console.log('Invalid login response:', invalidLoginResponse.text);
+    console.log("Invalid login response:", invalidLoginResponse.text);
     expect(invalidLoginResponse.statusCode).toBe(302);
     expect(invalidLoginResponse.header.location).toBe("/login");
     const todoResponse = await agent.get("/todos");
@@ -243,7 +243,7 @@ describe("Todo Application", function () {
   });
 
   test("Should not create a an account with empty email", async () => {
-    let res = await agent.get("/signup"); 
+    let res = await agent.get("/signup");
     const csrfToken = extractCsrfToken(res);
     const signupResponse = await agent.post("/users").send({
       firstName: "Test",
@@ -286,4 +286,33 @@ describe("Todo Application", function () {
     expect(signupResponse.statusCode).toBe(400);
     expect(signupResponse.text).toContain("First name is required");
   });
+
+  // test('should not create an account with an empty email, password, or firstName', async () => {
+  //   const response = await request(app).post('/users').send({
+  //     firstName: '',
+  //     lastName: 'Doe',
+  //     email: 'johndoe@example.com',
+  //     password: 'password123',
+  //   });
+  //   expect(response.status).toBe(400);
+  //   expect(response.text).toContain('First name, email, and password are required.');
+
+  //   const response2 = await request(app).post('/users').send({
+  //     firstName: 'John',
+  //     lastName: 'Doe',
+  //     email: '',
+  //     password: 'password123',
+  //   });
+  //   expect(response2.status).toBe(400);
+  //   expect(response2.text).toContain('First name, email, and password are required.');
+
+  //   const response3 = await request(app).post('/users').send({
+  //     firstName: 'John',
+  //     lastName: 'Doe',
+  //     email: 'johndoe@example.com',
+  //     password: '',
+  //   });
+  //   expect(response3.status).toBe(400);
+  //   expect(response3.text).toContain('First name, email, and password are required.');
+  // });
 });
