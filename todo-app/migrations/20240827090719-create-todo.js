@@ -13,6 +13,10 @@ module.exports = {
       title: {
         type: Sequelize.STRING,
         allowNull: false,
+        validate: {
+          notEmpty: true,
+          notNull: true,
+        },
       },
       dueDate: {
         type: Sequelize.DATEONLY,

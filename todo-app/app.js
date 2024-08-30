@@ -24,7 +24,7 @@ const { nextTick, title } = require("process");
 
 app.use(bodyParser.json());
 app.use(express.static(path.join(__dirname, "public")));
-app.use(express.urlencoded({ extended: false }));
+app.use(express.urlencoded({ extended: true }));
 app.use(cookieParser(csrfSecret));
 app.use(csrf(csrfSecret, ["POST", "PUT", "DELETE"]));
 app.use(express.json());
@@ -32,13 +32,13 @@ app.use(express.json());
 
 app.use(
   session({
-    secret: csrfSecret,
-    resave: false,
-    saveUninitialized: false,
+    secret: "secret-key-super",
+    // resave: false,
+    // saveUninitialized: false,
     cookie: {
       maxAge: 24 * 60 * 60 * 1000, //24hrs
-      secure: false,
-      httpOnly: true,
+      // secure: false,
+      // httpOnly: true,
     },
   }),
 );
@@ -61,21 +61,24 @@ passport.use(
       passwordField: "password",
     },
     async (username, password, done) => {
-    User.findOne({
+      const user = User.findOne({
         where: {
           email: username,
         },
       })
         .then(async (user) => {
+          if (!user) {
+            return done(null, false, { message: "User not found" });
+          }
           const result = await bcrypt.compare(password, user.password);
           if (result) {
             return done(null, user);
           } else {
-            return done({ message: "Invalid Password" });
+            return done(null, false, { message: "Invalid Password" });
           }
         })
         .catch((error) => {
-          return error;
+          return done(error);
         });
     },
   ),
@@ -162,40 +165,42 @@ app.get("/signup", (request, response) => {
 
 app.post("/users", async (request, response) => {
   const hashedPwd = await bcrypt.hash(request.body.password, saltRound);
-  const { firstName, email, password } = request.body;
-  if(!firstName) {
-    return response.status(400).json({error: 'First name is required'});
-  }
-  if(!email) {
-    return response.status(400).json({error: 'Email is required'});
-  }
-  if(!/\S+@\S+\.\S+/.test(email)) {
-    return response.status(400).json({error: 'Email must be valid one'});
-  }
-  if(!password) {
-    return response.status(400).json({error: 'Password is required'});
-  }
   try {
+    if (request.body.password === "") {
+      throw new Error("Validation notEmpty on password failed");
+    }
+    console.log("Creating user: ", request.body);
     const user = await User.create({
       firstName: request.body.firstName,
       lastName: request.body.lastName,
       email: request.body.email,
       password: hashedPwd,
     });
+    console.log("User created:", user.dataValues);
     request.login(user, (err) => {
       if (err) {
-        console.log(err);
-        return response.status(500).json({ error: 'Failed to log in after signup.' });
+        console.log("Login error:", err);
+        request.flash("error", "Login Failed");
       }
+      request.flash("success", "Signup Success");
       response.redirect("/todos");
     });
   } catch (error) {
-    console.error(error);
-    response.status(500).json({ error: 'Internal Server Error' });
+    console.error("User creation error:", error);
+    if (error.name === "SequelizeValidationError") {
+      const validationErrors = error.errors.map((err) => err.message);
+      request.flash("error", validationErrors);
+      response.redirect("/signup");
+    } else {
+      request.flash("error", "An error occured during the user creation");
+      response.redirect("/signup");
+    }
   }
 });
 
-app.post("/session", passport.authenticate("local", {
+app.post(
+  "/session",
+  passport.authenticate("local", {
     failureRedirect: "/login",
     failureFlash: true,
   }),
@@ -245,8 +250,11 @@ app.post(
         dueDate: request.body.dueDate,
         userId: request.user.id,
       });
-      // return response.json(todo);
-      return response.redirect("/todos");
+      if (request.accepts("html")) {
+        response.redirect("/todos");
+      } else {
+        response.json(todo);
+      }
     } catch (error) {
       console.log(error);
       return response.status(422).json(error);

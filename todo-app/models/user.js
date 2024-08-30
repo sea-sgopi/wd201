@@ -21,6 +21,7 @@ module.exports = (sequelize, DataTypes) => {
         allowNull: false,
         validate: {
           notEmpty: true,
+          notNull: true,
         },
       },
       lastName: DataTypes.STRING,
@@ -30,6 +31,7 @@ module.exports = (sequelize, DataTypes) => {
         validate: {
           notEmpty: true,
           isEmail: true,
+          notNull: true,
         },
       },
       password: {
@@ -37,10 +39,7 @@ module.exports = (sequelize, DataTypes) => {
         allowNull: false,
         validate: {
           notEmpty: true,
-          len: {
-            args: [8],
-            msg: "Password should be at least 8 characters long",
-          },
+          notNull: true,
         },
       },
     },
